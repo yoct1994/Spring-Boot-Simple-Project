@@ -4,6 +4,7 @@ import avocat.spring.simple.signup.springbootsimpleproject.payload.request.SignU
 import avocat.spring.simple.signup.springbootsimpleproject.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,7 @@ public class UserController {
     private final UserService userService; // 빈에 주입된 서비스 클래스를 주입 받는다 (이 때 꼭 final를 붙일것)
 
     @PostMapping // [POST] /user 로 보내는 요청을 담당한다
-    public void signUp(SignUpRequest signUpRequest) { // SignUpRequest 클래스 형태로 json을 받는다
+    public void signUp(@RequestBody SignUpRequest signUpRequest) { // SignUpRequest 클래스 형태로 json을 받는다
         userService.signUp(signUpRequest); // signUpRequest 를 인자로 보낸다
     }
 
