@@ -16,9 +16,9 @@ public class UserServiceImpl implements UserService {
     public void signUp(SignUpRequest signUpRequest) {
         userRepository.save(
                 User.builder()
-                .email(signUpRequest.getEmail())
-                .password(signUpRequest.getPassword())
-                .build()
+                    .email(signUpRequest.getEmail())
+                    .password(signUpRequest.getPassword())
+                    .build()
         );
         // 대충 User객체를 만들어서 디비에 넣는다는 내용
     }
